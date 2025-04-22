@@ -1,0 +1,17 @@
+name: Checkstyle Linter
+
+on: [push, pull_request]
+
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+      - name: Download Checkstyle
+        run: wget -O checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.12.1/checkstyle-10.12.1-all.jar
+      - name: Run Checkstyle
+        run: java -jar checkstyle.jar -c /google_checks.xml .
