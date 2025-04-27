@@ -1,12 +1,14 @@
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
-public class AccountTest {
+class AccountTest {
 
     @Test
-    public void testAccountNumber() {
-        Account account = new Account();
-        account.setAccountNumber("12345");
-        assertEquals("12345", account.getAccountNumber());
+    void testAccountCreation() {
+        Account account = new Account("123456", 1, 30, "Email");
+        assertEquals("123456", account.getAccountNumber());
+        assertEquals(1, account.getUserID());
+        assertEquals(30, account.getDeliveryFrequency());
+        assertEquals("Email", account.getDeliveryMode());
     }
 }
