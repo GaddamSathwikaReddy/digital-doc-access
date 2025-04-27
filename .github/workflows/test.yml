@@ -9,19 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up JDK
-      uses: actions/setup-java@v4
-      with:
-        java-version: '11'
-        distribution: 'temurin'
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
 
-    - name: Compile Java Files
-      run: |
-        javac -cp ".:lib/*" *.java src/test/java/*.java
+      - name: Compile Java Files
+        run: |
+          javac -cp "lib/*" *.java src/test/java/*.java
 
-    - name: Run Tests
-      run: |
-        java -cp ".:lib/*" org.junit.platform.console.ConsoleLauncher --scan-class-path
+      - name: Run Tests
+        run: |
+          java -cp "lib/*:." org.junit.platform.console.ConsoleLauncher --scan-class-path src/test/java
