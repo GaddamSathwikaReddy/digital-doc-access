@@ -20,7 +20,7 @@ jobs:
 
     - name: Compile Java Files
       run: |
-        javac -cp ".:lib/*" *.java src/test/*.java
+        javac -cp ".:lib/*" *.java src/test/java/*.java
 
     - name: Run Tests
       run: |
