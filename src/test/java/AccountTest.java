@@ -7,7 +7,7 @@ public class AccountTest {
     @Test
     void testAccountNumberAssignment() {
         Account account = new Account();
-        account.accountNumber = "ACC12345";
-        assertEquals("ACC12345", account.accountNumber);
+        account.setAccountNumber("ACC12345");
+        assertEquals("ACC12345", account.getAccountNumber());
     }
 }
