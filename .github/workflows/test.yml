@@ -1,0 +1,27 @@
+name: Java Manual Tests
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+
+    - name: Compile Java Files
+      run: |
+        javac -cp ".:lib/*" *.java test/*.java
+
+    - name: Run Tests
+      run: |
+        java -cp ".:lib/*" org.junit.platform.console.ConsoleLauncher --scan-class-path
