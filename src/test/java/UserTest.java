@@ -1,14 +1,16 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.Test;
-import java.util.Date;
 
-public class DocumentTest {
+public class UserTest {
 
     @Test
-    void testDocumentUploadDate() {
-        Document document = new Document();
-        document.uploadDate = new Date();
-        assertNotNull(document.uploadDate);
+    void testUserLoginMock() {
+        User userMock = mock(User.class);
+        doNothing().when(userMock).login();
+
+        userMock.login();
+
+        verify(userMock, times(1)).login();
     }
 }
