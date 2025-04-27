@@ -8,7 +8,7 @@ public class DocumentTest {
     @Test
     void testDocumentUploadDate() {
         Document document = new Document();
-        document.uploadDate = new Date();
-        assertNotNull(document.uploadDate);
+        document.setUploadDate(new Date());
+        assertNotNull(document.getUploadDate());
     }
 }
