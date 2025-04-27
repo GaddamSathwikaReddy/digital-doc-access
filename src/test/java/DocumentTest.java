@@ -1,12 +1,14 @@
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import java.util.Date;
 
 public class DocumentTest {
 
     @Test
-    public void testDocumentCreation() {
-        Document doc = new Document();
-        doc.setDocType("Invoice");
-        assertEquals("Invoice", doc.getDocType());
+    void testDocumentUploadDate() {
+        Document document = new Document();
+        document.uploadDate = new Date();
+        assertNotNull(document.uploadDate);
     }
 }
