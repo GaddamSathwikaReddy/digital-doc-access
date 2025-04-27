@@ -1,3 +1,6 @@
+import java.util.Date;
+import java.sql.Timestamp;
+
 public class Document {
 
 	private int documentID;
